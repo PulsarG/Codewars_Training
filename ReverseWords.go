@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	str := "привет как дела?"
+	str := "double spaced words"
 	resultString := ""
 
 	words := strings.Fields(str)
@@ -35,4 +35,5 @@ func main() {
 	} // end outer for
 
 	fmt.Println(resultString)
+	fmt.Println(resultString == "elbuod decaps sdrow")
 }
