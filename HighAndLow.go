@@ -36,3 +36,27 @@ func main() {
 	// to func
 	fmt.Println(strconv.Itoa(intNumbers[0]) + " " + strconv.Itoa(intNumbers[1]))
 }
+
+
+
+// !! ANSWER
+
+/* func HighAndLow(in string) string {
+	var tmpH, tmpL int
+	for i, s := range strings.Fields(in) {
+		n, _ := strconv.Atoi(string(s))
+		if i == 0 {
+			tmpH = n
+			tmpL = n
+		}
+
+		if n > tmpH {
+			tmpH = n
+		}
+
+		if n < tmpL {
+			tmpL = n
+		}
+	}
+	return fmt.Sprintf("%d %d", tmpH, tmpL)
+} */
