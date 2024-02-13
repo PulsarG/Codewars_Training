@@ -8,12 +8,12 @@ import (
 )
 
 func main() {
-	str := "123 456"
+	str := "привет как дела?"
 	resultString := ""
 
 	words := strings.Fields(str)
 
-	for _, word := range words {
+	for indx, word := range words {
 
 		runes := []rune(word)
 
@@ -25,7 +25,12 @@ func main() {
 
 		} // end inner for
 
-		resultString += newString + " "
+		if indx == len(words)-1 {
+			resultString += newString
+		} else {
+			resultString += newString + " "
+		} // end 2 inner for
+		
 	} // end outer for
 
 	fmt.Println(resultString)
