@@ -8,25 +8,22 @@ import (
 
 func main() {
 	var a, b int
-	var x, y int
 
-	a = -50
-	b = -10
+	a = -10
+	b = -50
 
 	if a > b {
-		x = b
-		y = a
+		fmt.Println(GetSum(b, a))
 	} else {
-		x = a
-		y = b
+		fmt.Println(GetSum(a, b))
 	}
+}
 
-	result := x
-
-	for x != y {
-		x++
-		result += x
+func GetSum(a, b int) int {
+	result := a
+	for a != b {
+		a++
+		result += a
 	}
-
-	fmt.Println(result)
+	return result
 }
