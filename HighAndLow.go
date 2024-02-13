@@ -7,9 +7,8 @@ import (
 )
 
 func main() {
-	s := "1 2 3"
-	intNumbers := [2]int{0, 0}
-	resultS := ""
+	s := "1 2 3 0 -3 0"
+	intNumbers := [2]int{}
 
 	sings := strings.Fields(s)
 
@@ -21,19 +20,19 @@ func main() {
 			continue
 		} else {
 
+			// to func
 			intN, _ := strconv.Atoi(str)
 
-			if intNumbers[0] <= intN {
+			if intNumbers[0] < intN {
 				intNumbers[0] = intN
 			}
-			if intNumbers[1] >= intN {
+			if intNumbers[1] > intN {
 				intNumbers[1] = intN
 			}
 
 		} // end if
 	} // end for
 
-	resultS += strconv.Itoa(intNumbers[0]) + " " + strconv.Itoa(intNumbers[1])
-
-	fmt.Println(resultS)
+	// to func
+	fmt.Println(strconv.Itoa(intNumbers[0]) + " " + strconv.Itoa(intNumbers[1]))
 }
