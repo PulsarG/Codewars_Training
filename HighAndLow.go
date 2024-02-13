@@ -7,32 +7,33 @@ import (
 )
 
 func main() {
-	s := "1 2 3 4 5 6 -1"
+	s := "1 2 3"
 	intNumbers := [2]int{0, 0}
 	resultS := ""
 
-	words := strings.Fields(s)
+	sings := strings.Fields(s)
 
-	for _, str := range words {
+	intNumbers[0], _ = strconv.Atoi(sings[0])
+	intNumbers[1], _ = strconv.Atoi(sings[0])
+
+	for _, str := range sings {
 		if str == " " {
 			continue
 		} else {
 
 			intN, _ := strconv.Atoi(str)
 
-			if intNumbers[0] < intN {
+			if intNumbers[0] <= intN {
 				intNumbers[0] = intN
 			}
-			if intNumbers[1] > intN {
+			if intNumbers[1] >= intN {
 				intNumbers[1] = intN
 			}
 
 		} // end if
 	} // end for
 
-	for _, num := range intNumbers {
-		resultS += strconv.Itoa(num) + " "
-	}
+	resultS += strconv.Itoa(intNumbers[0]) + " " + strconv.Itoa(intNumbers[1])
 
 	fmt.Println(resultS)
 }
