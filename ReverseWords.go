@@ -1,5 +1,5 @@
 // Reverse words
-// test#5.4
+// test#5.6
 
 package main
 
@@ -50,3 +50,22 @@ func main() {
 	fmt.Println(countSpaces)
 	fmt.Println(resultString == "elbuod")
 }
+
+
+// !! ANSWER
+
+/* func ReverseWords(str string) string {
+	var rev string
+	var word string
+	
+	for _, i := range str {
+	  if i == ' ' {
+		rev = rev + word + " " // Adds word and space to result
+		word = "" // Empties word variable
+	  } else {
+		word = string(i) + word // Adds letter to temporary word variable
+	  } 
+	}
+	
+	return rev + word// reverse those words
+	} */
