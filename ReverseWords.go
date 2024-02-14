@@ -1,5 +1,5 @@
-// Reverse words 
-// (5.2)
+// Reverse words
+// test#5.4
 
 package main
 
@@ -9,10 +9,15 @@ import (
 )
 
 func main() {
-	str := "double spaced words"
+	str := "double"
 	resultString := ""
 
 	words := strings.Fields(str)
+
+	countSpaces := strings.Count(str, " ")
+	if countSpaces != 0 {
+		countSpaces /= (len(words) - 1)
+	}
 
 	for indx, word := range words {
 
@@ -29,11 +34,19 @@ func main() {
 		if indx == len(words)-1 {
 			resultString += newString
 		} else {
-			resultString += newString + " "
+			if countSpaces > 1 {
+				newSpaces := ""
+				for i := 0; i < countSpaces; i++ {
+					newSpaces += " "
+				} // end inner for
+				resultString += newString + newSpaces
+			} else {
+				resultString += newString + " "
+			} // end inner if
 		} // end 2 inner for
-		
+
 	} // end outer for
 
-	fmt.Println(resultString)
-	fmt.Println(resultString == "elbuod decaps sdrow")
+	fmt.Println(countSpaces)
+	fmt.Println(resultString == "elbuod")
 }
