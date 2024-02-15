@@ -10,23 +10,25 @@ import (
 
 func main() {
 	arr := []int{1, 100, 50, -51, 1, 1}
-	reversIndx := len(arr) - 1
+	//reversIndx := len(arr) - 1
 
-	var firstSum, secondSum int
+	//var firstSum, secondSum int
 
-	for i, num := range arr {
+	for idxForFind := 0; idxForFind != len(arr); idxForFind++ {
 
-		firstSum += num
-		secondSum += arr[reversIndx-i]
+		var firstSum, secondSum int
 
-		//fmt.Println(firstSum, secondSum)
+		for idxDown := (idxForFind - 1); idxDown >= 0; idxDown-- {
+			firstSum += arr[idxDown]
+		} // end for
 
-		if firstSum == secondSum && i == reversIndx-i {
-			fmt.Println(i)
-			return
-		}
-		//firstSum += arr[i]
-	}
+		for idxUp := (len(arr) - 1); idxUp != idxForFind; idxUp-- {
+			secondSum += arr[idxUp]
+		} // end for
 
-	//fmt.Println(count)
+		if firstSum == secondSum {
+			fmt.Println("Result: ", idxForFind)
+		} // ned if
+
+	} // end outer for
 }
