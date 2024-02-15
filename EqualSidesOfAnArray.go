@@ -1,5 +1,5 @@
 // Equal Sides Of An Array - 6 kyu
-// test#7.1
+// test#7.1-ready+
 
 package main
 
@@ -32,3 +32,17 @@ func main() {
 
 	} // end outer for
 }
+
+
+// !! ANSWER
+
+/* func FindEvenIndex(arr []int) int {
+	var sum, b int
+	for _,n := range arr { sum += n }
+	for i,n := range arr {
+	  sum -= n
+	  if sum == b { return i }
+	  b += n
+	}
+	return -1
+  } */
