@@ -1,5 +1,5 @@
 // Persistent Bugger - 6 kyu
-// test#10.1
+// test#10.2+ready
 
 package main
 
@@ -15,14 +15,14 @@ func main() {
 	count := 0
 
 	for num >= 10 {
-		num = StringToTwoNumSum(num)
+		num = NumToStringAndToTwoNumSum(num)
 		count++
 	}
 
 	fmt.Println(count)
 }
 
-func StringToTwoNumSum(num int) int {
+func NumToStringAndToTwoNumSum(num int) int {
 	str := strconv.Itoa(num)
 	result := 1
 	for _, char := range str {
@@ -32,3 +32,20 @@ func StringToTwoNumSum(num int) int {
 	}
 	return result
 }
+
+
+// !! BEST ANSWER
+
+/* func Persistence(n int) int {
+	steps := 0
+	  for n >= 10 {
+	  m := 1
+	  for n > 0 {
+		m *= n % 10
+		n /= 10
+	  }
+	  n = m
+	  steps++
+	}
+	return steps
+  } */
