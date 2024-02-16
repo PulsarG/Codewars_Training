@@ -1,5 +1,5 @@
 // WeIrD StRiNg CaSe - 6 kyu
-// teset#9.1
+// teset#9.2+reasy
 
 package main
 
@@ -31,3 +31,24 @@ func main() {
 
 	fmt.Println(string(newString) == "ThIs Is A TeSt LoOkS LiKe YoU PaSsEd")
 }
+
+
+// !! BEST ANSWER
+
+/* func toWeirdCase(str string) string {
+	cap := true 
+	var result []rune
+	for _, c := range str {
+	  if(c == 32){
+		result = append(result, c)
+		cap = true
+	  }else if(cap){
+		result = append(result, unicode.ToUpper(c))
+		cap = false
+	  }else{
+		result = append(result, unicode.ToLower(c))
+		cap = true
+	  }
+	}
+	return string(result)
+  } */
