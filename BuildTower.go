@@ -1,5 +1,5 @@
 // Build Tower - 6 kyu
-// test#12.2+
+// test#12.3+
 
 package main
 
@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	startNumber := 7
+	startNumber := 10
 
 	for _, str := range TowerBuilder(startNumber) {
 		fmt.Println(str)
