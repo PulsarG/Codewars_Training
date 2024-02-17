@@ -1,5 +1,5 @@
 // Build Tower - 6 kyu
-// test#12.3+ready
+// test#12.4+ready
 
 package main
 
@@ -43,3 +43,16 @@ func addSpaces(str *string, countSpaces int) {
 		*str += " "
 	}
 }
+
+
+// !! BEST ANSWER
+
+/* func TowerBuilder(nFloors int) []string {
+	tow := make([]string, nFloors)
+	for i := 0; i < nFloors; i++ {
+	  spaces := strings.Repeat(" ", nFloors - (i + 1))
+	  blocks := strings.Repeat("*", i * 2 + 1)
+	  tow[i] = spaces + blocks + spaces
+	}
+	return tow
+  } */
