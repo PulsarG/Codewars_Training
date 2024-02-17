@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	startNumber := 3
+	startNumber := 7
 
 	for _, str := range TowerBuilder(startNumber) {
 		fmt.Println(str)
