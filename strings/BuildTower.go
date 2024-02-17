@@ -1,5 +1,5 @@
 // Build Tower - 6 kyu
-// test#12.3+
+// test#12.3+ready
 
 package main
 
