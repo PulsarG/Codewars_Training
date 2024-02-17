@@ -10,16 +10,19 @@ import (
 	//"unicode"
 )
 
-func main() {
-	num := 25
+func fooForTest(num int) int {
 	count := 0
 
 	for num >= 10 {
 		num = NumToStringAndToTwoNumSum(num)
 		count++
 	}
+	return count
+}
 
-	fmt.Println(count)
+func main() {
+	num := 25
+	fmt.Println(fooForTest(num))
 }
 
 func NumToStringAndToTwoNumSum(num int) int {
@@ -33,7 +36,7 @@ func NumToStringAndToTwoNumSum(num int) int {
 	return result
 }
 
-
+//PersistentBugger
 // !! BEST ANSWER
 
 /* func Persistence(n int) int {
