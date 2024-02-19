@@ -1,5 +1,5 @@
 // Beeramid - 5 kyu
-// test#14.2
+// test#14.3+
 
 package main
 
@@ -18,14 +18,15 @@ func main() {
 
 	var floatStartNumber = float64(startNumber)
 
-	floatLeftBeer := floatStartNumber / price
-	leftBeer := int(floatLeftBeer)
+	leftBeer := floatStartNumber / price
+	//leftBeer := int(floatLeftBeer)
 
 	for i := 1; ; i++ {
 		a := i
 		a *= a
-		if a < leftBeer {
-			leftBeer -= a
+		b := float64(a)
+		if b <= leftBeer {
+			leftBeer -= b
 			count++
 		} else {
 			fmt.Println(count)
