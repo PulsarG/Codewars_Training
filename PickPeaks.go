@@ -1,6 +1,6 @@
 // Pick peaks - 5 kyu
 // https://www.codewars.com/kata/5279f6fe5ab7f447890006a7/train/go
-// test#15.5+
+// test#15.6+
 
 package main
 
@@ -8,14 +8,14 @@ import (
 	"fmt"
 )
 
-var startArr = []int{2, 1, 3, 1, 2, 2, 2, 2}
+var startArr = []int{5, 7, 6, 6, -1, -1, -1, 10, 10, 10, 10, 10}
 
 type PosPeaks struct {
 	Pos   []int
 	Peaks []int
 }
 
-//	 PosPeaks{Pos: []int{2}, Peaks: []int{3}},
+//	 <kata.PosPeaks>: {Pos: [1, 5], Peaks: [7, 10]}
 
 func main() {
 	p := &PosPeaks{}
@@ -23,32 +23,37 @@ func main() {
 }
 
 func searchPicks(startArr []int, p *PosPeaks) PosPeaks {
-	lenArr := len(startArr)
-	for i := 1; i < lenArr-1; i++ {
+	lastIndex := len(startArr) - 1
+
+	for i := 1; i < lastIndex; i++ {
 		num := startArr[i]
-		a := i
+		currentIndexOrStartPlato := i
 
 		isPeack := (num > startArr[i-1] && num > startArr[i+1])
 
 		// check plato
 		isPlatoPeak := false
-		if num == startArr[i+1] {
+		if num == startArr[i+1] && num > startArr[i-1] {
 			for i += 1; num <= startArr[i]; i++ {
-				if i == lenArr-1 {
+				if i == lastIndex {
 					return *p
-				}
-				if num == startArr[i] {
+				} else if num == startArr[i] {
 					isPlatoPeak = true
 					continue
+				} else if num < startArr[i] {
+					isPlatoPeak = false
+					i -= 1
+					break
 				} else if num > startArr[i] {
 					isPlatoPeak = true
+					break
 				}
 			} // end for
 		} // end if
 
 		if isPeack || isPlatoPeak {
 			p.Peaks = append(p.Peaks, num)
-			p.Pos = append(p.Pos, a)
+			p.Pos = append(p.Pos, currentIndexOrStartPlato)
 		} // end if
 
 	} // end for
