@@ -1,5 +1,5 @@
 // Pick peaks - 5 kyu
-// test#15.1
+// test#15.2
 
 package main
 
@@ -13,17 +13,30 @@ type PosPeaks struct {
 	Pos   []int
 	Peaks []int
 }
+
 //	PosPeaks{Pos: []int{3, 7}, Peaks: []int{6, 3}}, */
 
 func main() {
-
-	// ** Перебор массива в поиске пиков
-	// ** Поиск пиков, кроме первого и последнего
+	p := &PosPeaks{}
+	
+	fmt.Println(searchPicks(startArr, p))
 	// ** Поиск плато
 	// ** Запись пиков и плато
+}
 
-	// ** Запись позиций пиков по массиву пиков
+func searchPicks(startArr []int, p *PosPeaks) PosPeaks {
+	for i, num := range startArr {
+		if i == 0 || i == (len(startArr)-1) {
+			continue
+		}
 
+		if num > startArr[i-1] && num > startArr[i+1] {
+			p.Peaks = append(p.Peaks, num)
+			p.Pos = append(p.Pos, i)
+		}
+	}
+
+	return *p
 }
 
 // !! BEST ANSWER
