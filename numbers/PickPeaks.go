@@ -1,6 +1,6 @@
 // Pick peaks - 5 kyu
 // https://www.codewars.com/kata/5279f6fe5ab7f447890006a7/train/go
-// test#15.6+
+// test#15.6+ready
 
 package main
 
@@ -62,3 +62,18 @@ func searchPicks(startArr []int, p *PosPeaks) PosPeaks {
 }
 
 // !! BEST ANSWER
+
+/* func PickPeaks(array []int) PosPeaks {
+	posPeaks := PosPeaks{Pos: []int{}, Peaks: []int{}}
+	candidate := 0
+	for i := 1; i < len(array); i++ {
+		if array[i-1] < array[i] {
+			candidate = i
+		} else if array[i-1] > array[i] && candidate > 0 {
+			posPeaks.Pos = append(posPeaks.Pos, candidate)
+			posPeaks.Peaks = append(posPeaks.Peaks, array[candidate])
+			candidate = 0
+		}
+	}
+	return posPeaks
+} */
