@@ -1,7 +1,7 @@
 package main
 
 import (
-	//"fmt"
+	"fmt"
 	//"strconv"
 	//"fmt"
 	"testing"
@@ -9,18 +9,18 @@ import (
 	//"unicode"
 )
 
-var testNum = 3
-var testResult = [3]string{"  *  ", " *** ", "*****"}
+var testNum = 
+var res = 
 
 func TestOk(t *testing.T) {
+	
+	r := 
 
-	res := TowerBuilder(testNum)
-
-	for i, _ := range res {
-		if res[i] != testResult[i] {
-			t.Errorf("TEST FAILED")
-			return
-		}
+	if r != res {
+		t.Errorf("TEST FAILED")
+		fmt.Println(r)
+		fmt.Println(res)
+		return
 	}
 	/* if res != testResult {
 		t.Errorf("Test for OK Failed")
