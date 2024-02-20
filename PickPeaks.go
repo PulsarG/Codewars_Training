@@ -1,5 +1,5 @@
 // Pick peaks - 5 kyu
-// test#15.3+
+// test#15.4+
 
 package main
 
@@ -18,26 +18,21 @@ type PosPeaks struct {
 
 func main() {
 	p := &PosPeaks{}
-
 	fmt.Println(searchPicks(startArr, p))
-	// ** Поиск плато
-	// ** Запись пиков и плато
 }
 
 func searchPicks(startArr []int, p *PosPeaks) PosPeaks {
-	for i := 1; i < len(startArr); i++ {
+	lenArr := len(startArr)
+	for i := 1; i < lenArr-1; i++ {
 		num := startArr[i]
 		a := i
-		if i == 0 || i == (len(startArr)-1) {
-			continue
-		}
 
 		isPeack := (num > startArr[i-1] && num > startArr[i+1])
+
+		// check plato
 		isPlatoPeak := false
-
 		if num == startArr[i+1] {
-
-			for i += 2; i < len(startArr); i++ {
+			for i += 2; i < lenArr; i++ {
 				if num == startArr[i] {
 					continue
 				} else if num > startArr[i] {
