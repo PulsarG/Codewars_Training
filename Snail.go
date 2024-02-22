@@ -1,6 +1,6 @@
 // Snail - 4 kyu
 // https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/go
-// test#16.2
+// test#16.3
 
 package main
 
@@ -14,30 +14,33 @@ func main() {
 	result := []int{}
 	isWork := true
 
+	l := len(startMap)
+
+	// запись первого слайса
 	for i := 0; i < len(startMap[0]); i++ {
 		result = append(result, startMap[0][i])
 	}
-
-	//startMap = append(startMap[:0], startMap[0+1:]...)
-	/* result = append(result, startMap[0][0])
-	result = append(result, startMap[0][1])
-	result = append(result, startMap[0][2])
-	*/
-	result = append(result, startMap[1][2])
-
-	result = append(result, startMap[2][2])
-	result = append(result, startMap[2][1])
-	result = append(result, startMap[2][0])
-
-	result = append(result, startMap[1][0])
-	result = append(result, startMap[1][1])
-
 	startMap = append(startMap[:0], startMap[0+1:]...)
 
+	// запись последних элементов всех слайсов далее
+	for i := 1; i < l; i++ {
+		result = append(result, startMap[i][l-1])
+		startMap[i] = startMap[i][:(l - 1)]
+	}
+
+	l = len(startMap)
+	fmt.Println(l)
+
+	// отзеркаливание
+	for i := 0; i < (l-1)/2; i++ {
+		startMap[i], startMap[l-i-1] = startMap[l-i-1], startMap[i]
+	}
+
+	// check
 	for i, num := range result {
 		if num != res[i] {
 			isWork = false
 		}
 	}
-	fmt.Println(isWork, startMap)
+	fmt.Println(isWork, startMap, res)
 }
