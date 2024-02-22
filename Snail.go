@@ -1,6 +1,6 @@
 // Snail - 4 kyu
 // https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/go
-// test#16.4
+// test#16.5+
 
 package main
 
@@ -15,32 +15,34 @@ func main() {
 	isWork := true
 
 	for len(startMap) >= 1 {
-
 		// !! НАЧАЛО ЦИКЛА
 		l := len(startMap)
-
 		// запись первого слайса
 		for i := 0; i < len(startMap[0]); i++ {
 			result = append(result, startMap[0][i])
 		}
-
-		// запись последних элементов всех слайсов далее
-		for i := 1; i < l; i++ {
-			result = append(result, startMap[i][l-1])
-			startMap[i] = startMap[i][:(l - 1)]
-		}
-
-		startMap = append(startMap[:0], startMap[0+1:]...)
-		l = len(startMap)
-
-		if l > 0 {
+		if l > 1 {
+			// запись последних элементов всех слайсов далее
+			for i := 1; i < l; i++ {
+				result = append(result, startMap[i][l-1])
+				startMap[i] = startMap[i][:(l - 1)]
+			}
+			startMap = append(startMap[:0], startMap[0+1:]...)
+			l = len(startMap)
 			// отзеркаливание
 			for i := 0; i < l/2; i++ {
-				for j := 0; i < l/2; i++ {
+				for j := 0; j < l/2; j++ {
 					startMap[i][j], startMap[i][l-j-1] = startMap[i][l-j-1], startMap[i][j]
 				}
 				startMap[i], startMap[l-i-1] = startMap[l-i-1], startMap[i]
 			} // end for
+			for i := 0; i < l/2; i++ {
+				for j := 0; j < l/2; j++ {
+					startMap[i][j], startMap[i][l-j-1] = startMap[i][l-j-1], startMap[i][j]
+				}
+			} // end for
+		} else if l == 1 {
+			startMap = append(startMap[:0], startMap[0+1:]...) // end for
 		} // end if
 	} // end for
 
