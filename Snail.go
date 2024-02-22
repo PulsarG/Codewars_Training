@@ -1,6 +1,6 @@
 // Snail - 4 kyu
 // https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/go
-// test#16.5+
+// test#16.6
 
 package main
 
@@ -9,13 +9,12 @@ import (
 )
 
 func main() {
-	startMap := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9}}
-	res := []int{1, 2, 3, 6, 9, 8, 7, 4, 5}
+	startMap := [][]int{{1, 2, 3, 1}, {4, 5, 6, 4}, {7, 8, 9, 7}, {7, 8, 9, 7}}
+	res := []int{1, 2, 3, 1, 4, 7, 7, 9, 8, 7, 7, 4, 5, 6, 9, 8}
 	result := []int{}
 	isWork := true
 
 	for len(startMap) >= 1 {
-		// !! НАЧАЛО ЦИКЛА
 		l := len(startMap)
 		// запись первого слайса
 		for i := 0; i < len(startMap[0]); i++ {
@@ -31,9 +30,6 @@ func main() {
 			l = len(startMap)
 			// отзеркаливание
 			for i := 0; i < l/2; i++ {
-				for j := 0; j < l/2; j++ {
-					startMap[i][j], startMap[i][l-j-1] = startMap[i][l-j-1], startMap[i][j]
-				}
 				startMap[i], startMap[l-i-1] = startMap[l-i-1], startMap[i]
 			} // end for
 			for i := 0; i < l/2; i++ {
@@ -52,5 +48,5 @@ func main() {
 			isWork = false
 		}
 	}
-	fmt.Println(isWork, startMap, result)
+	fmt.Println(isWork, result)
 }
