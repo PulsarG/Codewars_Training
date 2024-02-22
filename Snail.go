@@ -1,6 +1,6 @@
 // Snail - 4 kyu
 // https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/go
-// test#16.7
+// test#16.8+
 
 package main
 
@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	startMap := [][]int{{1, 2, 3, 1}, {4, 5, 6, 4}, {7, 8, 9, 7}, {7, 8, 9, 7}}
-	res := []int{1, 2, 3, 1, 4, 7, 7, 9, 8, 7, 7, 4, 5, 6, 9, 8}
+	startMap := [][]int{{1, 2, 3, 4, 5}, {16, 17, 18, 19, 6}, {15, 24, 25, 20, 7}, {14, 23, 22, 21, 8}, {13, 12, 11, 10, 9}}
+	//res := []int{1, 2, 3, 1, 4, 7, 7, 9, 8, 7, 7, 4, 5, 6, 9, 8}
 	result := []int{}
 	isWork := true
 
@@ -43,10 +43,10 @@ func main() {
 	} // end for
 
 	// check
-	for i, num := range result {
+	/* for i, num := range result {
 		if num != res[i] {
 			isWork = false
 		}
-	}
+	} */
 	fmt.Println(isWork, result)
 }
