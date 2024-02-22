@@ -1,6 +1,6 @@
 // Snail - 4 kyu
 // https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/go
-// test#16.8+
+// test#16.9+ready
 
 package main
 
@@ -14,6 +14,9 @@ func main() {
 	result := []int{}
 	isWork := true
 
+	// Записываем первый индекс и последние индексы внутренних слайсов/массивов
+	// затем "переворачиваем" на 180 - отзеркаливаем, тем самым
+	// имее возможность вновь повторить этот же алгоритм
 	for len(startMap) >= 1 {
 		l := len(startMap)
 		// запись первого слайса
@@ -50,3 +53,40 @@ func main() {
 	} */
 	fmt.Println(isWork, result)
 }
+
+
+// !! BEST ANSWER
+
+/* func Snail(snailMap [][]int) []int {
+
+	xmin := 0
+	ymin := 0
+	xmax := len( snailMap[0]) - 1
+	ymax := len( snailMap) - 1  
+	resultln := len(snailMap[0]) * len(snailMap)
+	result := make([]int, 0)
+	
+	for len(result) < resultln {
+	  
+	  for x := xmin; x <= xmax; x++ {
+		result = append(result, snailMap[ymin][x])
+	  }
+	  ymin++
+	
+	  for y := ymin; y <= ymax; y++ {
+		result = append(result, snailMap[y][xmax])
+	  }
+	  xmax--
+	
+	  for x := xmax; x >= xmin; x-- {
+		result = append(result, snailMap[ymax][x])
+	  }
+	  ymax--  
+	
+	  for y := ymax; y >= ymin; y-- {
+		result = append(result, snailMap[y][xmin])
+	  }
+	  xmin++
+	}  
+	return result
+  } */
