@@ -1,6 +1,6 @@
 // Snail - 4 kyu
 // https://www.codewars.com/kata/521c2db8ddc89b9b7a0000c1/train/go
-// test#16.6
+// test#16.7
 
 package main
 
@@ -32,7 +32,7 @@ func main() {
 			for i := 0; i < l/2; i++ {
 				startMap[i], startMap[l-i-1] = startMap[l-i-1], startMap[i]
 			} // end for
-			for i := 0; i < l/2; i++ {
+			for i := 0; i < l; i++ {
 				for j := 0; j < l/2; j++ {
 					startMap[i][j], startMap[i][l-j-1] = startMap[i][l-j-1], startMap[i][j]
 				}
