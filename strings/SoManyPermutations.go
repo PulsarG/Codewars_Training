@@ -1,6 +1,6 @@
 // So Many Permutations - 4 kyu
 // https://www.codewars.com/kata/5254ca2719453dcc0b00027d/train/go
-// test#17.3+
+// test#17.4+ready
 
 package main
 
@@ -53,8 +53,20 @@ func generateVar(arr []string, vars []string, used []bool, resulatArr *[]string,
 	}
 }
 
-/* With input 'ab':
-Your function should return ['ab', 'ba']
 
-With input 'abc':
-Your function should return ['abc','acb','bac','bca','cab','cba'] */
+// !! BEST ANSWER
+
+/* func Permutations(s string) (a[]string) {
+  if len(s) < 2 { return []string{s} }
+  m := map[string]bool{}
+  for _, sub := range Permutations(s[1:]) {
+    for i := 0; i <= len(sub); i++ {
+      st := sub[0:i] + s[0:1] + sub[i:]
+      if m[st] { continue }
+      m[st]=true
+      a = append(a, st)
+    }
+  }
+  return
+} */
+
