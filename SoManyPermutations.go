@@ -1,6 +1,6 @@
 // So Many Permutations - 4 kyu
 // https://www.codewars.com/kata/5254ca2719453dcc0b00027d/train/go
-// test#17.2
+// test#17.1.1
 
 package main
 
@@ -12,19 +12,32 @@ import (
 func main() {
 	startStr := "abc"
 	var arrLiteral []string
+	var resulatArr []string
+	ignotInd := 4
 
 	for _, str := range startStr {
 		arrLiteral = append(arrLiteral, string(str))
 	}
 
+	generateCombinations(arrLiteral, resulatArr, ignotInd)
 
 	fmt.Println(arrLiteral)
 }
 
-В цикле индекс = длина - 1
-	индекс литерал - первый в новой строке
-	запуск метода перебора всех литералов, кроме индекса
-		внутри функции рекурсия - создается массив без индекса и цикл со старта
+func generateCombinations(arrLit, resulatArr []string, ignotInd int) {
+	newStr := ""
+	for i := 0; i < len(arrLit); i++ {
+		newStr += arrLit[i]
+	}
+}
+
+// ** Первый индекс + следующий + следующий+1...
+// ** Первый индекс + следущий+1 + следующий + следующий+2...
+
+//В цикле индекс = длина - 1
+//	индекс литерал - первый в новой строке
+//	запуск метода перебора всех литералов, кроме индекса
+//		внутри функции рекурсия - создается массив без индекса и цикл со старта
 
 //generateCombinations("", n)
 
