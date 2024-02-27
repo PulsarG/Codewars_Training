@@ -1,6 +1,6 @@
 // So Many Permutations - 4 kyu
 // https://www.codewars.com/kata/5254ca2719453dcc0b00027d/train/go
-// test#17.1.1
+// test#17.2
 
 package main
 
@@ -13,43 +13,41 @@ func main() {
 	startStr := "abc"
 	var arrLiteral []string
 	var resulatArr []string
-	ignotInd := 4
 
 	for _, str := range startStr {
 		arrLiteral = append(arrLiteral, string(str))
 	}
 
-	generateCombinations(arrLiteral, resulatArr, ignotInd)
+	vars := make([]string, 0, len(arrLiteral))
+	used := make([]bool, len(arrLiteral))
 
-	fmt.Println(arrLiteral)
+	generateVar(arrLiteral, vars, used, &resulatArr)
+
+	fmt.Println(resulatArr)
 }
 
-func generateCombinations(arrLit, resulatArr []string, ignotInd int) {
-	newStr := ""
-	for i := 0; i < len(arrLit); i++ {
-		newStr += arrLit[i]
+func generateVar(arr []string, vars []string, used []bool, resulatArr *[]string) {
+	if len(vars) == len(arr) {
+		newStr := ""
+		for _, s := range vars {
+			newStr += s
+		}
+		*resulatArr = append(*resulatArr, newStr)
+		return
+	}
+
+	for i := 0; i < len(arr); i++ {
+		if !used[i] {
+			used[i] = true
+			vars = append(vars, arr[i])
+			generatePermutations(arr, vars, used, resulatArr)
+			vars = vars[:len(vars)-1]
+			used[i] = false
+		}
 	}
 }
 
-// ** Первый индекс + следующий + следующий+1...
-// ** Первый индекс + следущий+1 + следующий + следующий+2...
-
-//В цикле индекс = длина - 1
-//	индекс литерал - первый в новой строке
-//	запуск метода перебора всех литералов, кроме индекса
-//		внутри функции рекурсия - создается массив без индекса и цикл со старта
-
-//generateCombinations("", n)
-
-// Разбиение на руны
-// Алгорит перебор
-// сбор в строки
-// Добавление в массив
-
-/* With input 'a':
-Your function should return: ['a']
-
-With input 'ab':
+/* With input 'ab':
 Your function should return ['ab', 'ba']
 
 With input 'abc':
