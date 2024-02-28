@@ -1,9 +1,6 @@
 // The Millionth Fibonacci Kata - 3 kyu
 // https://www.codewars.com/kata/53d40c1e2f13e331fc000c26/train/go
-// test#18.2
-
-// Reverse words
-// test#5.6
+// test#18.3+
 
 package main
 
@@ -16,22 +13,28 @@ import (
 // !! Использовать лишь три индекса для экономии памяти
 
 func main() {
-	var result big.Int
-	n := 2000000
-	var fibArr []big.Int
+	n := 100
+	var fibArr [3]big.Int
 
-	for i := 0; i <= n; i++ {
-		if i == 0 || i == 1 {
-			fibArr = append(fibArr, *big.NewInt(int64(i)))
+	for i := 0; i <= int(n); i++ {
+		if i == 0 {
+			fibArr[0] = *big.NewInt(int64(i))
+			fibArr[1] = *big.NewInt(int64(i))
+			fibArr[2] = *big.NewInt(int64(i))
+		} else if i == 1 {
+			fibArr[1] = *big.NewInt(int64(i))
+			fibArr[2] = *big.NewInt(int64(i))
 		} else {
 
-			a := fibArr[i-2]
-			b := fibArr[i-1]
+			a := fibArr[0]
+			b := fibArr[1]
 			c := new(big.Int).Add(&a, &b)
-			fibArr = append(fibArr, *c)
+			fibArr[2] = *c
+
+			fibArr[0] = fibArr[1]
+			fibArr[1] = fibArr[2]
 		}
 	}
-	result = fibArr[len(fibArr)-1]
 
-	fmt.Println(result)
+	fmt.Println(fibArr[2])
 }
