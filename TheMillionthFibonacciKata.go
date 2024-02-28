@@ -9,20 +9,26 @@ package main
 
 import (
 	"fmt"
-	//"math/big"
+	"math/big"
 	//"strings"
 )
 
+// !! Использовать лишь три индекса для экономии памяти
+
 func main() {
-	var result int
-	n := 50
-	var fibArr []int
+	var result big.Int
+	n := 2000000
+	var fibArr []big.Int
 
 	for i := 0; i <= n; i++ {
 		if i == 0 || i == 1 {
-			fibArr = append(fibArr, i)
+			fibArr = append(fibArr, *big.NewInt(int64(i)))
 		} else {
-			fibArr = append(fibArr, (fibArr[i-2] + fibArr[i-1]))
+
+			a := fibArr[i-2]
+			b := fibArr[i-1]
+			c := new(big.Int).Add(&a, &b)
+			fibArr = append(fibArr, *c)
 		}
 	}
 	result = fibArr[len(fibArr)-1]
