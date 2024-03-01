@@ -1,6 +1,6 @@
 // The Millionth Fibonacci Kata - 3 kyu
 // https://www.codewars.com/kata/53d40c1e2f13e331fc000c26/train/go
-// test#18.8
+// test#18.8.1
 
 package main
 
@@ -8,6 +8,8 @@ import (
 	"fmt"
 	"math/big"
 )
+
+// TODO Сократить, ускорить <12000vc
 
 func main() {
 	n := -9
@@ -39,4 +41,3 @@ func main() {
 	}
 	fmt.Println(fibArr[1])
 }
-
