@@ -1,6 +1,6 @@
 // The Millionth Fibonacci Kata - 3 kyu
 // https://www.codewars.com/kata/53d40c1e2f13e331fc000c26/train/go
-// test#18.10
+// test#18.10.1
 
 package main
 
@@ -10,9 +10,11 @@ import (
 	"time"
 )
 
+// !! Ускорить ? Как
+
 func main() {
 	start := time.Now()
-	n := 2000000
+	n := 1000000 // 2000000
 	var fib big.Int
 
 	a, b := big.NewInt(0), big.NewInt(0)
