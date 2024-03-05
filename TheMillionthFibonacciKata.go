@@ -1,16 +1,14 @@
 // The Millionth Fibonacci Kata - 3 kyu
 // https://www.codewars.com/kata/53d40c1e2f13e331fc000c26/train/go
-// test#18.10.1
+// test#18.11
 
-package main
+/* package main
 
 import (
 	"fmt"
 	"math/big"
 	"time"
 )
-
-// !! Ускорить ? Как
 
 func main() {
 	start := time.Now()
@@ -48,6 +46,32 @@ func main() {
 	}
 
 	//fmt.Println(fib)
+
+	elapsed := time.Since(start)
+	fmt.Println("Время выполнения:", elapsed)
+} */
+
+package main
+
+import (
+	"fmt"
+	"math"
+	"math/big"
+	"time"
+)
+
+func main() {
+	start := time.Now()
+
+	n := 2000000
+
+	// Бине
+	phi := (1 + math.Sqrt(5)) / 2
+	fib := (math.Pow(phi, float64(n)) - math.Pow(-phi, -float64(n))) / math.Sqrt(5)
+
+	result := big.NewInt(int64(fib))
+
+	fmt.Println(result)
 
 	elapsed := time.Since(start)
 	fmt.Println("Время выполнения:", elapsed)
