@@ -1,6 +1,6 @@
 // The Millionth Fibonacci Kata - 3 kyu
 // https://www.codewars.com/kata/53d40c1e2f13e331fc000c26/train/go
-// test#18.12
+// test#18.13
 
 package main
 
@@ -12,39 +12,37 @@ import (
 
 func main() {
 	start := time.Now()
-	n := 2000000
-	var fib big.Int
-
-	a, b := big.NewInt(0), big.NewInt(0)
+	n := -10
 
 	if n >= 0 {
-		fibAdd := fibA(n)
+		fibAdd := fibAdd(n)
 		fmt.Println(fibAdd)
 		elapsed := time.Since(start)
 		fmt.Println("Время выполнения:", elapsed)
 		return
 	} else {
-		for i := 0; i >= n-1; i-- {
-			if i == 0 {
-				fib.Sub(b, a)
-			} else if i == -1 {
-				b = big.NewInt(-1)
-				fib.Sub(b, a)
-			} else {
-				fib.Sub(b, a)
-				b.Set(a)
-				a.Set(&fib)
-			}
-		}
+		fibSub := fibSub(n)
+		fmt.Println(fibSub)
+		elapsed := time.Since(start)
+		fmt.Println("Время выполнения:", elapsed)
+		
 	}
-
-	fmt.Println(fib)
-
-	elapsed := time.Since(start)
-	fmt.Println("Время выполнения:", elapsed)
 }
 
-func fibA(n int) *big.Int {
+func fibSub(n int) *big.Int {
+	if n == -1 {
+		return big.NewInt(-1)
+	}
+
+	a, b := big.NewInt(0), big.NewInt(-1)
+	for i := -2; i >= n; i-- {
+		a.Sub(a, b)
+		a, b = b, a
+	}
+	return b
+}
+
+func fibAdd(n int) *big.Int {
 	if n <= 0 {
 		return big.NewInt(0)
 	}
