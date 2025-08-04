@@ -2,8 +2,6 @@
 // https://www.codewars.com/kata/53d40c1e2f13e331fc000c26/train/go
 // test#18.16
 
-// well???
-
 package main
 
 import (
