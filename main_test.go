@@ -7,30 +7,26 @@ import (
 	"testing"
 	//"strings"
 	//"unicode"
+	"math/big"
 )
 
-var testNum = []int{2, 1, 3, 1, 2, 2, 2, 2}
-var resPos = []int{2}
+func TestMain(t *testing.T) {
+	a := big.NewInt(55)
+	test := fibAdd(10)
 
-func TestOk(t *testing.T) {
-	p := &PosPeaks{}
-	r := searchPicks(testNum, p)
+	result := a.Cmp(test)
 
-	if r.Pos[0] != resPos[0] {
-		t.Errorf("TEST FAILED")
-		fmt.Println(r)
-		fmt.Println(resPos)
-		return
+	switch result {
+	case -1:
+		fmt.Println("Test for OK Failed")
+	case 0:
+		fmt.Println("Test OK")
+	case 1:
+		fmt.Println("Test for OK Failed")
 	}
-	if r.Pos[0] == resPos[0] {
-		t.Errorf("TEST OK !!!")
-		return
-	}
-	/* if res != testResult {
+
+	/* if result != a {
 		t.Errorf("Test for OK Failed")
-	} */
-	/* if TowerBuilder(testNum) != testResult {
-			t.Errorf("Test for OK Failed")
-		}
+		t.Log(result, a)
 	} */
 }
