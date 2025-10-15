@@ -1,6 +1,6 @@
 // The Millionth Fibonacci Kata - 3 kyu
 // https://www.codewars.com/kata/53d40c1e2f13e331fc000c26/train/go
-// test#18.17 1
+// test#18.17 2
 
 package main
 
@@ -53,3 +53,13 @@ func fibAdd(n int) *big.Int {
 	}
 	return b
 }
+
+
+// Time: 2462ms Passed: 1Failed: 0
+Test Results:
+Test Example
+Basic Tests
+Test Passed
+Completed in 0.0320ms
+You have passed all of the tests! :) 
+
