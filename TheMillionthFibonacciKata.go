@@ -1,6 +1,6 @@
 // The Millionth Fibonacci Kata - 3 kyu
 // https://www.codewars.com/kata/53d40c1e2f13e331fc000c26/train/go
-// test#18.17 2
+// test#18.17 
 
 package main
 
